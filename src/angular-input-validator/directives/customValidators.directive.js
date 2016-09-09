@@ -12,32 +12,34 @@ angular.module('angularInputValidator.directives.customValidators', [])
 				if(!ctrl) return;
 				var validations = [],
 					allowedFails = 0,
-					removeOldValidators = function(new, old){
-						//TODO
-					},
 					runValidators = function(modelValue){
-						validations.forEach(function(validation){
+						_.each(validations, function(validation){
 							validation.value = ctrl.$isEmpty(modelValue) || validation.validator.fn(modelValue);
 						});
 						var fails = validations.reduce(function(memo, validation){
 							return (validation.value) ? memo : memo + 1;
 						}, 0);
-						validations.forEach(function(validation){
+						_.each(validations, function(validation){
 							ctrl.$setValidity(validation.validator.name, (fails <= allowedFails) || validation.value);
 						});
 					},
-					setValidators = function(newValidators, oldValidators){
-						if(newValidators){
-							validations = [];
-							newValidators.forEach(function(validatorName){
-								validations.push({validator: nmCustomValidators.getRule(validatorName)});
-							});
-						}
-						removeOldValidators(newValidators, oldValidators);
+					validatorsChange = function(newValidators, oldValidators){
+						setValidators(newValidators);
+						removeValidations(_.difference(oldValidators, newValidators));
 						runValidators(ctrl.$modelValue);
+					},
+					removeValidations = function(oldValidators){
+						_.each(oldValidators, function(validatorName){
+							ctrl.$setValidity(validatorName, true);
+						});
+					},
+					setValidators = function(newValidators){
+						validations = _.map(newValidators, function(validatorName){
+							return {validator: nmCustomValidators.getRule(validatorName)};
+						});
 					};
 
-				scope.$watch('nmCustomValidators', setValidators);
+				scope.$watch('nmCustomValidators', validatorsChange);
 				scope.$watch(function(){return ctrl.$modelValue;}, runValidators);
 				attrs.$observe('nmAllowFails', function(newAllowedFails){
 					allowedFails = (newAllowedFails) ? parseInt(newAllowedFails) : 0;
