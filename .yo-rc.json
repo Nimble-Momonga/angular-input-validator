@@ -1,0 +1,30 @@
+{
+  "generator-angularjs-library": {
+    "props": {
+      "author": {
+        "name": "Manuel Cruz Tejedor",
+        "email": "manuel_tejedor_77@hotmail.com"
+      },
+      "libraryName": {
+        "original": "angular-password-validator",
+        "camelized": "angularPasswordValidator",
+        "dasherized": "angular-password-validator",
+        "slugified": "angular-password-validator",
+        "parts": [
+          "angular",
+          "password",
+          "validator"
+        ]
+      },
+      "includeModuleDirectives": true,
+      "includeModuleFilters": true,
+      "includeModuleServices": true,
+      "includeAngularModuleResource": true,
+      "includeAngularModuleCookies": false,
+      "includeAngularModuleSanitize": true,
+      "librarySrcDirectory": "src/angular-password-validator",
+      "libraryUnitTestDirectory": "test/unit/angular-password-validator",
+      "libraryUnitE2eDirectory": "test/e2e/angular-password-validator"
+    }
+  }
+}

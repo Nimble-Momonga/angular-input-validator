@@ -1,0 +1,26 @@
+{
+  "name": "angular-password-validator",
+  "version": "0.1.0",
+  "authors": [
+    {
+      "name": "Manuel Cruz Tejedor",
+      "email": "manuel_tejedor_77@hotmail.com"
+    }
+  ],
+  "main": ["dist/angular-password-validator.js"],
+  "ignore": [
+    "src",
+    "test",
+    "gulpfile.js",
+    "karma-*.conf.js",
+    "**/.*"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "angular-mocks": ">=1.2.0",
+    "angular-scenario": ">=1.2.0",
+    "angular": ">=1.2.0",
+    "angular-resource": ">=1.2.0",
+    "angular-sanitize": ">=1.2.0"
+  }
+}
