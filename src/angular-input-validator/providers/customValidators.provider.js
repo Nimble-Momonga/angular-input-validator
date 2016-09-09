@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularInputValidator.providers.customValidators', [])
+angular.module('angularInputValidator.providers.customValidators', ['angularInputValidator.providers.defaultValidators'])
 	.provider('nmCustomValidators', function(){
 		var rules = {};
 
@@ -28,7 +28,9 @@ angular.module('angularInputValidator.providers.customValidators', [])
 
 
 		return {
-			$get: function(){
+			$get: function(nmDefaultValidators){
+				rules = nmDefaultValidators.getDefaultRules();
+
 				return {
 					createRegexRule: createRegexRule,
 					getRule: getRule

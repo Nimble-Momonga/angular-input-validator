@@ -12,6 +12,9 @@ angular.module('angularInputValidator.directives.customValidators', [])
 				if(!ctrl) return;
 				var validations = [],
 					allowedFails = 0,
+					removeOldValidators = function(new, old){
+						//TODO
+					},
 					runValidators = function(modelValue){
 						validations.forEach(function(validation){
 							validation.value = ctrl.$isEmpty(modelValue) || validation.validator.fn(modelValue);
@@ -22,16 +25,17 @@ angular.module('angularInputValidator.directives.customValidators', [])
 						validations.forEach(function(validation){
 							ctrl.$setValidity(validation.validator.name, (fails <= allowedFails) || validation.value);
 						});
-				},
-					setValidators = function(newValidators){
+					},
+					setValidators = function(newValidators, oldValidators){
 						if(newValidators){
 							validations = [];
 							newValidators.forEach(function(validatorName){
 								validations.push({validator: nmCustomValidators.getRule(validatorName)});
 							});
 						}
+						removeOldValidators(newValidators, oldValidators);
 						runValidators(ctrl.$modelValue);
-				};
+					};
 
 				scope.$watch('nmCustomValidators', setValidators);
 				scope.$watch(function(){return ctrl.$modelValue;}, runValidators);

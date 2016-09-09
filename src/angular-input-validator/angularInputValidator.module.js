@@ -11,8 +11,13 @@
 		});
 
 	// Modules
-	angular.module('angularInputValidator.directives', []);
-	angular.module('angularInputValidator.providers', []);
+	angular.module('angularInputValidator.directives', [
+		'angularInputValidator.directives.customValidators'
+	]);
+	angular.module('angularInputValidator.providers', [
+		'angularInputValidator.providers.customValidators',
+		'angularInputValidator.providers.defaultValidators'
+	]);
 	angular.module('angularInputValidator', [
 		'angularInputValidator.config',
 		'angularInputValidator.directives',
