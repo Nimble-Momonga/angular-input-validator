@@ -6,13 +6,13 @@
         "email": "manuel_tejedor_77@hotmail.com"
       },
       "libraryName": {
-        "original": "angular-password-validator",
-        "camelized": "angularPasswordValidator",
-        "dasherized": "angular-password-validator",
-        "slugified": "angular-password-validator",
+        "original": "angular-input-validator",
+        "camelized": "angularInputValidator",
+        "dasherized": "angular-input-validator",
+        "slugified": "angular-input-validator",
         "parts": [
           "angular",
-          "password",
+          "input",
           "validator"
         ]
       },
@@ -22,9 +22,9 @@
       "includeAngularModuleResource": true,
       "includeAngularModuleCookies": false,
       "includeAngularModuleSanitize": true,
-      "librarySrcDirectory": "src/angular-password-validator",
-      "libraryUnitTestDirectory": "test/unit/angular-password-validator",
-      "libraryUnitE2eDirectory": "test/e2e/angular-password-validator"
+      "librarySrcDirectory": "src/angular-input-validator",
+      "libraryUnitTestDirectory": "test/unit/angular-input-validator",
+      "libraryUnitE2eDirectory": "test/e2e/angular-input-validator"
     }
   }
 }

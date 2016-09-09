@@ -39,10 +39,10 @@ var lintFiles = [
 gulp.task('build', function() {
   gulp.src(sourceFiles)
     .pipe(plumber())
-    .pipe(concat('angular-password-validator.js'))
+    .pipe(concat('angular-input-validator.js'))
     .pipe(gulp.dest('./dist/'))
     .pipe(uglify())
-    .pipe(rename('angular-password-validator.min.js'))
+    .pipe(rename('angular-input-validator.min.js'))
     .pipe(gulp.dest('./dist'));
 });
 

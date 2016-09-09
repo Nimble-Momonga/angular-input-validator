@@ -1,2 +1,2 @@
-# angular-password-validator
+# angular-input-validator
 

@@ -13,29 +13,29 @@ describe('', function() {
   beforeEach(function() {
 
   // Get module
-  module = angular.module('angularPasswordValidator');
+  module = angular.module('angularInputValidator');
   dependencies = module.requires;
   });
 
   it('should load config module', function() {
-    expect(hasModule('angularPasswordValidator.config')).to.be.ok;
+    expect(hasModule('angularInputValidator.config')).to.be.ok;
   });
 
   
   it('should load filters module', function() {
-    expect(hasModule('angularPasswordValidator.filters')).to.be.ok;
+    expect(hasModule('angularInputValidator.filters')).to.be.ok;
   });
   
 
   
   it('should load directives module', function() {
-    expect(hasModule('angularPasswordValidator.directives')).to.be.ok;
+    expect(hasModule('angularInputValidator.directives')).to.be.ok;
   });
   
 
   
   it('should load services module', function() {
-    expect(hasModule('angularPasswordValidator.services')).to.be.ok;
+    expect(hasModule('angularInputValidator.services')).to.be.ok;
   });
   
 

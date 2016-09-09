@@ -28,7 +28,7 @@ module.exports = function(config) {
       'bower/angular-resource/angular-resource.js',
       'bower/angular-sanitize/angular-sanitize.js',
       'bower/angular-mocks/angular-mocks.js',
-      'dist/angular-password-validator.js',
+      'dist/angular-input-validator.js',
       'test/unit/**/*.js'
     ],
 
