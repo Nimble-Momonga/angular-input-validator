@@ -16,8 +16,8 @@
           "validator"
         ]
       },
-      "includeModuleDirectives": true,
-      "includeModuleFilters": true,
+      "includeModuleDirectives": false,
+      "includeModuleFilters": false,
       "includeModuleServices": true,
       "includeAngularModuleResource": true,
       "includeAngularModuleCookies": false,
