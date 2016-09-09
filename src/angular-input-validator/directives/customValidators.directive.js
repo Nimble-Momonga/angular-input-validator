@@ -22,7 +22,6 @@ angular.module('angularInputValidator.directives.customValidators', [])
 						validations.forEach(function(validation){
 							ctrl.$setValidity(validation.validator.name, (fails <= allowedFails) || validation.value);
 						});
-						console.log(ctrl.$valid);
 				},
 					setValidators = function(newValidators){
 						if(newValidators){
