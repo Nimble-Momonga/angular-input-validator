@@ -13,11 +13,9 @@ angular.module('angularInputValidator.directives.customValidators', [])
 				var validations = [],
 					allowedFails = 0,
 					runValidators = function(modelValue){
-						_.each(validations, function(validation){
+						var fails = _.reduce(validations, function(memo, validation){
 							validation.value = ctrl.$isEmpty(modelValue) || validation.validator.fn(modelValue);
-						});
-						var fails = validations.reduce(function(memo, validation){
-							return (validation.value) ? memo : memo + 1;
+							return memo + !validation.value;
 						}, 0);
 						_.each(validations, function(validation){
 							ctrl.$setValidity(validation.validator.name, (fails <= allowedFails) || validation.value);
