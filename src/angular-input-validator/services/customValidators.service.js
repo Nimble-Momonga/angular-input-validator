@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('angularInputValidator.providers.customValidators', ['angularInputValidator.providers.defaultValidators'])
-	.provider('nmCustomValidators', function(){
-		var rules = {};
+angular.module('angularInputValidator.services.customValidators', ['angularInputValidator.providers.defaultValidators'])
+	.service('nmCustomValidators', function(nmDefaultValidators){
+		var rules = nmDefaultValidators.getDefaultRules();
 
 		var getRule = function(ruleName){
 			return rules[ruleName];
@@ -28,13 +28,7 @@ angular.module('angularInputValidator.providers.customValidators', ['angularInpu
 
 
 		return {
-			$get: function(nmDefaultValidators){
-				rules = nmDefaultValidators.getDefaultRules();
-
-				return {
-					createRegexRule: createRegexRule,
-					getRule: getRule
-				}
-			}
+			createRegexRule: createRegexRule,
+			getRule: getRule
 		}
 	});

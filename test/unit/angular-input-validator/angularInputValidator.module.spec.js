@@ -29,4 +29,8 @@ describe('', function() {
 		expect(hasModule('angularInputValidator.directives')).to.be.ok;
 	});
 
+	it('should load services module', function() {
+		expect(hasModule('angularInputValidator.services')).to.be.ok;
+	});
+
 });

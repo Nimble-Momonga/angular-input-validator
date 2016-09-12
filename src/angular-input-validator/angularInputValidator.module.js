@@ -15,13 +15,16 @@
 		'angularInputValidator.directives.customValidators'
 	]);
 	angular.module('angularInputValidator.providers', [
-		'angularInputValidator.providers.customValidators',
 		'angularInputValidator.providers.defaultValidators'
+	]);
+	angular.module('angularInputValidator.services', [
+		'angularInputValidator.services.customValidators',
 	]);
 	angular.module('angularInputValidator', [
 		'angularInputValidator.config',
 		'angularInputValidator.directives',
 		'angularInputValidator.providers',
+		'angularInputValidator.services',
 		'ngResource',
 		'ngSanitize'
 	]);
