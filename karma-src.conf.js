@@ -26,6 +26,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'bower/angular/angular.js',
+      './node_modules/phantomjs-polyfill/bind-polyfill.js',
       'bower/angular-resource/angular-resource.js',
       'bower/angular-sanitize/angular-sanitize.js',
       'bower/angular-mocks/angular-mocks.js',
