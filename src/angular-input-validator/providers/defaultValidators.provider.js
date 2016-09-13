@@ -56,8 +56,6 @@ angular.module('angularInputValidator.providers.defaultValidators', [])
 			}
 			/*min,//numerico / length / fecha ??
 			max,//numerico / length / fecha ??
-			integer,
-			natural,
 			email,//something@something.something
 			url,
 			date,

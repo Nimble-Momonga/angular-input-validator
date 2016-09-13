@@ -34,6 +34,9 @@ describe('nmCustomValidators', function() {
 				return memo + char;
 			}, '');
 		},
+		questionMarkQuantifier = function(generator){
+			return randomFromInterval(0,1) ? generator() : '';
+		},
 		generateString = function(generator, quantifier){
 			return quantifier(generator);
 		};
@@ -50,46 +53,82 @@ describe('nmCustomValidators', function() {
 
 	describe('getRule', function(){
 
+		var rule;
+
 		describe('required', function(){
+
+			beforeEach(function(){
+				rule = nmCustomValidators.getRule('required');
+			});
 			
 			it('should get default rule', function(){
-				expect(nmCustomValidators.getRule('required')).to.be.a('object');
+				expect(rule).to.be.a('object');
+			});
+
+			it('should return validation ^.+$ false', function(){
+				expect(rule.fn('')).to.be.false;
 			});
 
 			it('should return validation ^.+$ true', function(){
 				_.each(_.range(100), function(){
 					var testString = generateString(charGenerator, plusQuantifier);
-					expect(nmCustomValidators.getRule('required').fn(testString)).to.be.true;
+					expect(rule.fn(testString)).to.be.true;
 				});
-			});
-
-			it('should return validation ^.+$ false', function(){
-				expect(nmCustomValidators.getRule('required').fn('')).to.be.false;
 			});
 
 		});
 
 		describe('natural', function(){
+
+			beforeEach(function(){
+				rule = nmCustomValidators.getRule('natural');
+			});
 			
 			it('should get default rule', function(){
-				expect(nmCustomValidators.getRule('natural')).to.be.a('object');
+				expect(rule).to.be.a('object');
 			});
 
 			it('should return validation ^[0-9]*$ false', function(){
 				_.each(_.range(100), function(){
 					var testString = generateString(nonDigitGenerator, plusQuantifier);
-					expect(nmCustomValidators.getRule('natural').fn(testString)).to.be.false;
+					expect(rule.fn(testString)).to.be.false;
 				});
 			});
 
 			it('should return validation ^[0-9]*$ true', function(){
 				_.each(_.range(100), function(){
 					var testString = generateString(digitGenerator, asteriskQuantifier);
-					expect(nmCustomValidators.getRule('natural').fn(testString)).to.be.true;
+					expect(rule.fn(testString)).to.be.true;
 				});
 			});
 
 		});
+
+		/*describe('integer', function(){
+
+			beforeEach(function(){
+				rule = nmCustomValidators.getRule('integer');
+			});
+
+			it('should get default rule', function(){
+				expect(rule).to.be.a('object');
+			});
+
+			it('should return validation ^([-+][0-9])?[0-9]*$ false', function(){
+				_.each(_.range(100), function(){
+					var testString = generateString(nonDigitGenerator, plusQuantifier);
+					expect(rule.fn(testString)).to.be.false;
+				});
+			});
+
+			it('should return validation ^([-+][0-9])?[0-9]*$ true', function(){
+				_.each(_.range(100), function(){
+					var testString = generateString(digitGenerator, asteriskQuantifier);
+					expect(rule.fn(testString)).to.be.true;
+				});
+			});
+
+		});*/
 
 	});
 
