@@ -29,6 +29,7 @@ angular.module('angularInputValidator.services.customValidators', ['angularInput
 
 		return {
 			createRegexRule: createRegexRule,
+			createRule: createRule,
 			getRule: getRule
 		}
 	});
